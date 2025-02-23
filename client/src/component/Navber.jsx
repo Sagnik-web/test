@@ -1,10 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {useHistory, Link} from 'react-router-dom'
+import 'cookie-store';
 
 
 function Navber() {
 
     const history = useHistory()
+    const [isLiggedIn,setIsLoggedIn] = useState(false)
+
+    useEffect(()=>{
+      cookieStore.get('token')
+      .then(res=>{
+        console.log(res);
+        if(res.value != ''){
+          setIsLoggedIn(true)
+          console.log(res);
+
+        }
+      })
+
+      .catch(()=>{
+        console.log("Error");
+      })
+
+    },[])
+
+
+    const logout = async()=>{
+      await cookieStore.set('token','')
+      setIsLoggedIn(false)
+      history.push('/login')
+    }
 
   return (
     <nav className="bg-blue-600 p-4">
@@ -31,12 +57,19 @@ function Navber() {
         </div>
         {/* Authentication Buttons */}
         <div className="hidden sm:block sm:ml-6">
-          <button className="bg-transparent text-white border border-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium cursor-pointer" onClick={()=>history.push('/signup')}>
-            Sign Up
+        {!isLiggedIn?
+        <><button className="bg-transparent text-white border border-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium cursor-pointer" onClick={()=>history.push('/signup')}>
+        Sign Up
+      </button>
+      <button className="bg-transparent text-white border border-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium ml-4 cursor-pointer" onClick={()=>history.push('/login')}>
+        Log In
+      </button>
+      </>:  <button className="bg-transparent text-white border border-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium ml-4 cursor-pointer" onClick={logout}>
+            Logout
           </button>
-          <button className="bg-transparent text-white border border-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium ml-4 cursor-pointer" onClick={()=>history.push('/login')}>
-            Log In
-          </button>
+      }  
+          
+          
         </div>
       </div>
     </div>

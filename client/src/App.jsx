@@ -5,6 +5,7 @@ import Signup from "./pages/signup/Signup"
 import Login from "./pages/Login/Login"
 import CreatePost from "./pages/CreatePost/CreatePost"
 import { ToastContainer } from 'react-toastify';
+import { MyContext } from "./Context/MyContext"
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     <>
       <BrowserRouter>
         <ToastContainer/>
+        {/* <MyContext> */}
         <Navber/>
         <Switch>
             <Route path="/" exact><Post/></Route>
@@ -20,6 +22,7 @@ function App() {
             <Route path="/login"><Login/></Route>  
             <Route path="/create"><CreatePost/></Route>  
         </Switch>
+        {/* </MyContext> */}
       </BrowserRouter>
     </>
   )

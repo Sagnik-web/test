@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import { registerAPI } from '../../api/userAPI';
 import { toast } from 'react-toastify';
 // import 'cookie-store';
@@ -13,6 +13,7 @@ function Signup() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
   
+    const history = useHistory()
     const handleSignup = () => {
     //   e.preventDefault();
   
@@ -36,6 +37,8 @@ function Signup() {
       }).then(res=>{
         console.log(res.data);
         toast.success("Register Successfully")
+        history.push('/login')
+
       })
       .catch(err=>{
         console.log(err);

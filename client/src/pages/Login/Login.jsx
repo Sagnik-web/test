@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { loginAPI } from '../../api/userAPI';
 import { toast } from 'react-toastify';
 import 'cookie-store';
+// import { useHistory } from 'react-router-dom';
 function Login() {
+  const history = useHistory()
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
     console.log(email, password);
+
 
 
 
@@ -21,6 +24,8 @@ function Login() {
       await cookieStore.set('token', res.data.token);
       // await localStorage.setItem('userID',res.data.user._id)
       toast.success("Login Successfully")
+      history.push('/')
+      window.location.reload();
     }).catch(()=>{
       console.log("Error");
       toast.error("Login Failed try again")
@@ -30,6 +35,7 @@ function Login() {
   };
 
   return (
+    
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold text-center">Login</h2>
