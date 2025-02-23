@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" clip-rule="evenodd" viewBox="0 0 64 64" id="Love">
+  <g fill="#000	" class="color000000 svgShape">
+    <rect width="64" height="64" fill="none"></rect>
+    <path fill="#ff0000" d="M32,15.631C34.02,12.381 36.466,10.288 38.984,9.093C44.282,6.576 50.008,7.949 53.588,11.35C59.14,16.624 59.535,27.165 53.99,37.712C50.305,45.182 40.932,52.71 33.07,57.69C32.417,58.103 31.583,58.103 30.93,57.69C23.068,52.71 13.695,45.182 10.01,37.712C4.465,27.165 4.861,16.624 10.412,11.35C13.992,7.949 19.718,6.576 25.016,9.093C27.534,10.288 29.98,12.381 32,15.631Z" class="color3fc1c9 svgShape"></path>
+  </g>
+</svg>
