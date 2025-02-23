@@ -23,7 +23,7 @@ function Signup() {
         return;
       }
 
-      if(password.length >5){
+      if(password.length <6){
         setError("Passwords don't match!");
         toast.error("Password mustbe more than 6 charecter.")
 
